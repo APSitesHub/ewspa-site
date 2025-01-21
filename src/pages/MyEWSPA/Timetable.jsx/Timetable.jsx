@@ -25,7 +25,7 @@ import {
 
 export const Timetable = ({ user, timetable }) => {
   const [isAnimated, setIsAnimated] = useState(false);
-  const [marathonId, setMarathonId] = useState(user.marathonId);
+  const [marathonId, setMarathonId] = useState('81950');
   const [personalTimetable, setPersonalTimetable] = useState(
     timetable.find(timeline => marathonId === timeline.marathon)
   );
