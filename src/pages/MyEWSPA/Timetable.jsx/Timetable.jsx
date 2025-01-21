@@ -32,24 +32,24 @@ export const Timetable = ({ user, timetable }) => {
 
   const changeTimetable = () => {
     setIsAnimated(true);
-    setMarathonId(marathonId => (marathonId === '72421' ? '79231' : '72421'));
+    setMarathonId(marathonId => (marathonId === '81951' ? '81950' : '81951'));
     setPersonalTimetable(
       personalTimetable =>
         (personalTimetable = timetable.find(timeline =>
-          marathonId === '72421'
-            ? '79231' === timeline.marathon
-            : '72421' === timeline.marathon
+          marathonId === '81951'
+            ? '81950' === timeline.marathon
+            : '81951' === timeline.marathon
         ))
     );
     setTimeout(() => {
-      setIsAnimated(false)
+      setIsAnimated(false);
     }, 3000);
   };
 
   const getLink = () => {
-    const baseStreamUrl = 'https://pedagogium.ap.education/lesson/';
+    const baseStreamUrl = 'https://ewspa.ap.education/lesson/';
 
-    return marathonId === '72421'
+    return marathonId === '81950'
       ? baseStreamUrl + 'logistics'
       : baseStreamUrl + 'prep';
   };
@@ -86,7 +86,7 @@ export const Timetable = ({ user, timetable }) => {
               <TimetableLessonType
                 className={isAnimated ? 'animated' : undefined}
               >
-                {marathonId === '72421' ? 'Logistics' : 'Kurs Przygotowawczy'}
+                {marathonId === '81950' ? 'Logistics' : 'Kurs Przygotowawczy'}
               </TimetableLessonType>
               <TimetableLessonLink href={link} target="_blank">
                 <TimetableLessonLinkText>Go to lesson</TimetableLessonLinkText>
@@ -137,54 +137,6 @@ export const Timetable = ({ user, timetable }) => {
               </tbody>
             </TimetableTable>
           </TimetableWebinars>{' '}
-          {/* <TimetableSpeakings>
-            <TimetableWebinarsHead>
-              <TimetableLessonType>Practice online</TimetableLessonType>
-              <TimetableLessonLink href={speakingLink} target="_blank">
-                <TimetableLessonLinkText>Go to lesson</TimetableLessonLinkText>
-              </TimetableLessonLink>
-            </TimetableWebinarsHead>
-            <TimetableTable>
-              <thead>
-                <tr>
-                  <TimetableHead className="day">Day</TimetableHead>
-                  <TimetableHead className="time">Time</TimetableHead>
-                  <TimetableHead className="lessonNumber">
-                    Lesson №
-                  </TimetableHead>
-                  <TimetableHead className="teacher">Teacher</TimetableHead>
-                </tr>
-              </thead>
-              <tbody>
-                {personalTimetable.schedule
-                  .filter(lesson => lesson.type === 'speaking')
-                  .sort((a, b) => a.day - b.day)
-                  .map((lesson, i) => (
-                    <TimetableDaysItem
-                      key={i}
-                      style={
-                        lesson.day === new Date().getDay()
-                          ? { backgroundColor: '#F9C838' }
-                          : {}
-                      }
-                    >
-                      <TimetableDaysCell className="day">
-                        {DAYS[lesson.day - 1]}
-                      </TimetableDaysCell>
-                      <TimetableDaysCell className="time">
-                        {lesson.time}
-                      </TimetableDaysCell>
-                      <TimetableDaysCell className="lessonNumber">
-                        {lesson.lessonNumber}
-                      </TimetableDaysCell>
-                      <TimetableDaysCell className="teacher">
-                        {lesson.teacher}
-                      </TimetableDaysCell>
-                    </TimetableDaysItem>
-                  ))}
-              </tbody>
-            </TimetableTable>
-          </TimetableSpeakings> */}
         </TimetableBody>
       )}
     </TimetableBox>

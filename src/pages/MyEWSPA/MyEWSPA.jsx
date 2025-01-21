@@ -1,3 +1,4 @@
+import logo from '../../img/svg/logoNew.png';
 import axios from 'axios';
 import { FormBtnText, Label } from 'components/LeadForm/LeadForm.styled';
 import {
@@ -16,10 +17,10 @@ import {
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { MyPlatform } from './My Platform/MyPlatform';
-import { MyPedagogiumPanel } from './MyPedagogiumPanel/MyPedagogiumPanel';
-import { LoginErrorNote } from './MyPedagogiumPanel/MyPedagogiumPanel.styled';
+import { MyEWSPAPanel } from './MyEWSPAPanel/MyEWSPAPanel';
+import { LoginErrorNote } from './MyEWSPAPanel/MyEWSPAPanel.styled';
 
-const MyPedagogium = () => {
+const MyEWSPA = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [timetable, setTimetable] = useState({});
   const [user, setUser] = useState({});
@@ -31,7 +32,7 @@ const MyPedagogium = () => {
   axios.defaults.baseURL = 'https://ap-server-8qi1.onrender.com';
 
   useEffect(() => {
-    document.title = 'My Pedagogium | Pedagogium';
+    document.title = 'My EWSPA | EWSPA';
 
     const refreshToken = async () => {
       console.log('token refresher');
@@ -117,7 +118,7 @@ const MyPedagogium = () => {
           validationSchema={loginSchema}
         >
           <LoginForm>
-            <LoginLogo />
+            <LoginLogo src={logo} alt="EWSPA logo" />
             <LoginFormText>
               <StreamAuthTextHello>Hello!</StreamAuthTextHello>
               Our website is not available without authorization. Please enter
@@ -153,11 +154,7 @@ const MyPedagogium = () => {
         </Formik>
       ) : (
         <>
-          <MyPedagogiumPanel
-            user={user}
-            link={platformLink}
-            timetable={timetable}
-          />
+          <MyEWSPAPanel user={user} link={platformLink} timetable={timetable} />
           <MyPlatform platformLink={platformLink} />
         </>
       )}
@@ -165,4 +162,4 @@ const MyPedagogium = () => {
   );
 };
 
-export default MyPedagogium;
+export default MyEWSPA;

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { TimetableBtnIcon } from '../MyPedagogiumPanel/MyPedagogiumPanel.styled';
+import { TimetableBtnIcon } from '../MyEWSPAPanel/MyEWSPAPanel.styled';
 
 export const TimetableBox = styled.div`
   position: absolute;
